@@ -38,7 +38,11 @@ const formSchema = z.object({
   }),
 });
 
-const FromLogin = () => {
+type Props = {
+   tabs : boolean
+}
+
+const FromLogin = ({tabs}:Props) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
@@ -46,7 +50,6 @@ const FromLogin = () => {
   const submit = async (data: z.infer<typeof formSchema>, event: any) => {
     console.log(data);
   };
-  const [tabs, setTabs] = useState(true);
 
   if (tabs) {
     return (
@@ -98,19 +101,10 @@ const FromLogin = () => {
               </FormItem>
             )}
           />
-          <div className="flex w-[400px] m-auto">
-            <FormDescription
-              onClick={() => setTabs(false)}
-              className=" w-[45%] mt-[20px]"
-            >
-              sigup
-            </FormDescription>
-
-            <FormDescription className=" ml-[34%] w-[45%] mt-[20px]">
-              forgot password
-            </FormDescription>
-          </div>
-
+          <FormDescription className="ml-[62%] mr-[30%] w-[45%] mt-[20px]">
+            {" "}
+            forgot password{" "}
+          </FormDescription>
           <Button
             type="submit"
             className="bg-[#5e35b1] ml-[36%] mr-[40%] mt-5 w-[28%] h-[35px] rounded-full text-white transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
@@ -121,118 +115,7 @@ const FromLogin = () => {
       </Form>
     );
   } else {
-    return (
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(submit)}
-          className="m-auto max-w-[900px]"
-        >
-          <FormField
-            control={form.control}
-            name="account"
-            render={({ field }) => (
-              <FormItem className="ml-[27%] mr-[50%] w-[45%] ">
-                <div className="relative flex py-2 items-center w-[500px]">
-                  <Label className="text-[16px] font-bold ml-[14px]">
-                    Account
-                  </Label>
-                  <FormMessage className="ml-[10px] mb-1 mt-1  text-[12px]" />
-                </div>
-                <FormControl>
-                  <Input
-                    placeholder="enter your account"
-                    {...field}
-                    className="h-[40px] rounded-full"
-                  />
-                </FormControl>
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem className="ml-[27%] mr-[50%] w-[45%]">
-                <div className="relative flex py-2 items-center w-[500px]">
-                  <Label className="text-[16px] font-bold ml-[14px]">
-                    Password
-                  </Label>
-                  <FormMessage className="ml-[10px] mb-1 mt-1 text-[12px]" />
-                </div>
-                <FormControl>
-                  <Input
-                    placeholder="enter your password"
-                    {...field}
-                    className="h-[40px] rounded-full"
-                  />
-                </FormControl>
-              </FormItem>
-          )}
-          
-          />
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem className="ml-[27%] mr-[50%] w-[45%]">
-                <div className="relative flex py-2 items-center w-[500px]">
-                  <Label className="text-[16px] font-bold ml-[14px]">
-                    Password
-                  </Label>
-                  <FormMessage className="ml-[10px] mb-1 mt-1 text-[12px]" />
-                </div>
-                <FormControl>
-                  <Input
-                    placeholder="enter your password"
-                    {...field}
-                    className="h-[40px] rounded-full"
-                  />
-                </FormControl>
-              </FormItem>
-          )}
-          
-          />
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem className="ml-[27%] mr-[50%] w-[45%]">
-                <div className="relative flex py-2 items-center w-[500px]">
-                  <Label className="text-[16px] font-bold ml-[14px]">
-                    Password
-                  </Label>
-                  <FormMessage className="ml-[10px] mb-1 mt-1 text-[12px]" />
-                </div>
-                <FormControl>
-                  <Input
-                    placeholder="enter your password"
-                    {...field}
-                    className="h-[40px] rounded-full"
-                  />
-                </FormControl>
-              </FormItem>
-          )}
-          
-          />
-          <div className="flex w-[400px] m-auto">
-            <FormDescription
-              onClick={() => setTabs(true)}
-              className=" w-[45%] mt-[20px]"
-            >
-              login
-            </FormDescription>
-          </div>
-
-          <Button
-            type="submit"
-            className="bg-[#5e35b1] ml-[36%] mr-[40%] mt-5 w-[28%] h-[35px] rounded-full text-white transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
-          >
-            Submit
-          </Button>
-        </form>
-      </Form>
-    );
+    return <h2> helooo my word</h2>;
   }
 };
 

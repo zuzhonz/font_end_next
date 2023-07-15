@@ -45,6 +45,7 @@ const components: { title: string; href: string; description: string }[] = [
 ];
 
 const page = () => {
+  const [tabs, setTabs] = useState(true);
 
   return (
     <main className="w-full h-screen bg-[#fbf1d3] ">
@@ -73,11 +74,17 @@ const page = () => {
               Account Login
             </span>
           </div>
-          <FromLogin  />
-          <div className="relative flex py-5 items-center w-[500px] mt-[20px] m-auto">
+          <FromLogin tabs={tabs} />
+          <div className="relative flex py-5 items-center w-[500px] mt-[20px] m-auto"  onClick={() => {
+            if (tabs) {
+              setTabs(false);
+            } else {
+              setTabs(true);
+            }
+          }} >
             <div className="flex-grow border-[1px]  border-[#5e35b1]"></div>
             <span className="flex-shrink mx-4 text-gray-400">
-              Login in with
+              { tabs ? "Login in with " : "Sign up" }
             </span>
             <div className="flex-grow border-[1px] border-[#5e35b1]"></div>
           </div>
