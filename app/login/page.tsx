@@ -4,7 +4,7 @@ import GoogleBtn from "@/components/GoogleBtn";
 import MenuDropDown from "@/components/MenuDropDown";
 import { Button } from "@/components/ui/button";
 import { ShoppingCartIcon, User2Icon } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 // import { UserIcon } from '@heroicons/react/24/solid';
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -46,7 +46,6 @@ const components: { title: string; href: string; description: string }[] = [
 
 const page = () => {
 
-
   return (
     <main className="w-full h-screen bg-[#fbf1d3] ">
       <header className=" w-full text-[#5e35b1]   ">
@@ -74,7 +73,7 @@ const page = () => {
               Account Login
             </span>
           </div>
-          <FromLogin />
+          <FromLogin  />
           <div className="relative flex py-5 items-center w-[500px] mt-[20px] m-auto">
             <div className="flex-grow border-[1px]  border-[#5e35b1]"></div>
             <span className="flex-shrink mx-4 text-gray-400">
@@ -84,6 +83,7 @@ const page = () => {
           </div>
           <GoogleBtn />
         </div>
+       
       </main>
     </main>
   );
