@@ -1,5 +1,6 @@
 "use client";
-import FromLogin from "@/components/FromLogin";
+import LoginForm from "@/components/FormLogin/loginForm";
+import SigninForm from "@/components/FormLogin/signinForm";
 import GoogleBtn from "@/components/GoogleBtn";
 import MenuDropDown from "@/components/MenuDropDown";
 import { Button } from "@/components/ui/button";
@@ -48,7 +49,7 @@ const page = () => {
   const [tabs, setTabs] = useState(true);
 
   return (
-    <main className="w-full h-screen bg-[#fbf1d3] ">
+    <main className="w-full h-screen bg-[#fbf1d3] overflow-auto ">
       <header className=" w-full text-[#5e35b1]   ">
         <nav className="md:px-10 py-4 px-7 md:flex justify-between items-center">
           <div className=" text-4xl font-bold gap-2">Logo</div>
@@ -67,14 +68,14 @@ const page = () => {
           </div>
         </nav>
       </header>
-      <main className="mt-[3%] ">
-        <div className="">
+      <section className="mt-[3%] ">
+        <div className="mb-[100px]">
           <div className="title-form w-auto  m-auto text-center">
             <span className="text-4xl font-Pacifico font-bold ">
-              Account Login
+              {tabs ? "Account Login" : "Account sign in"}
             </span>
           </div>
-          <FromLogin tabs={tabs} />
+           { tabs ? <LoginForm /> : <SigninForm /> }
           <div className="relative flex py-5 items-center w-[500px] mt-[20px] m-auto"  onClick={() => {
             if (tabs) {
               setTabs(false);
@@ -91,7 +92,8 @@ const page = () => {
           <GoogleBtn />
         </div>
        
-      </main>
+      </section>
+      
     </main>
   );
 };
