@@ -37,15 +37,14 @@ const formSchema = z
       .string({
         required_error: "* Password is required !",
       })
-      .min(0, {
+      .min(2, {
         message: " * Password must be at least 2 characters.",
       }),
 
-    confirm: z
-      .string({
+    confirm: z.string({
         required_error: "* Confirm Password is required !",
       })
-      .min(0, {
+      .min(2, {
         message: " * Confirm password must be at least 2 characters.",
       }),
 
@@ -65,7 +64,9 @@ const formSchema = z
 
     verifcation: z.string({
       required_error: " * verifcation is required !",
-    }),
+    }).min(1,{
+      message: " * Verifcation must be at least 1 character "
+    })
   })
   .refine((data) => data.password === data.confirm, {
     message: " ! Passwords don't match !",
@@ -77,6 +78,11 @@ const SigninForm = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       account: "",
+      verifcation: "",
+      phone_number : "",
+      password : "",
+      confirm : ""
+     
     },
   });
 
@@ -148,13 +154,13 @@ const SigninForm = () => {
               <div className="flex justify-between gap-3">
                 <FormControl>
                   <Input
-                    placeholder="enter your password"
+                    placeholder="enter your verification"
                     {...field}
                     className="h-[40px] rounded-full"
                   />
                 </FormControl>
                 <Button
-                  type="submit"
+                  type="button"
                   className="bg-[#5e35b1] mt-[1px]   w-[28%] h-[35px] rounded-full text-white transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
                 >
                   Submit
@@ -199,7 +205,7 @@ const SigninForm = () => {
               </div>
               <FormControl>
                 <Input
-                  placeholder="enter your password"
+                  placeholder="enter your confirm password"
                   {...field}
                   className="h-[40px] rounded-full"
                 />

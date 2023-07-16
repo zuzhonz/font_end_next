@@ -51,7 +51,7 @@ const page = () => {
   return (
     <main className="w-full h-screen bg-[#fbf1d3] overflow-auto ">
       <header className=" w-full text-[#5e35b1]   ">
-        <nav className="md:px-10 py-4 px-7 md:flex justify-between items-center">
+        <nav className="md:px-10 py-4 px-7 justify-between md:flex  items-center">
           <div className=" text-4xl font-bold gap-2">Logo</div>
 
           <div className="flex gap-5 text-xl ">
@@ -85,10 +85,11 @@ const page = () => {
           }} >
             <div className="flex-grow border-[1px]  border-[#5e35b1]"></div>
             <span className="flex-shrink mx-4 text-gray-400">
-              { tabs ? "Login in with " : "Sign up" }
+              { tabs ? "sign up account click here  " : "Login in with " }
             </span>
             <div className="flex-grow border-[1px] border-[#5e35b1]"></div>
           </div>
+
           <GoogleBtn />
         </div>
        

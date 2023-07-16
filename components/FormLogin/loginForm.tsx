@@ -40,6 +40,7 @@ const LoginForm = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       account: "",
+      password : "",
     },
   });
 
