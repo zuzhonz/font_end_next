@@ -73,6 +73,9 @@ module.exports = {
       fontFamily: {
         Pacifico: ['Pacifico', 'cursive']
       },
+      backgroundImage: {
+        'footer-vector_6': "url('/image/Vector_6')",
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
